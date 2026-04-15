@@ -60,7 +60,7 @@ function Workspace() {
           <Editor
             onSaveTrigger={triggerSave}
             fileId={fileId}
-            fileData={fileData}
+            fileData={fileData!}
           />
         </div>
 
@@ -69,7 +69,7 @@ function Workspace() {
           <Canvas
             onSaveTrigger={triggerSave}
             fileId={fileId}
-            fileData={fileData}
+            fileData={fileData!}
           />
         </div>
       </div>
