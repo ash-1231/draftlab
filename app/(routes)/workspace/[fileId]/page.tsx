@@ -12,7 +12,7 @@ import { useParams } from "next/navigation";
 function Workspace() {
   const params = useParams();
 
-  // ✅ FIX: handle string | string[]
+  //  FIX: handle string | string[]
   const fileId = Array.isArray(params?.fileId)
     ? params.fileId[0]
     : params?.fileId;
@@ -21,12 +21,12 @@ function Workspace() {
   const convex = useConvex();
   const [fileData, setFileData] = useState<FILE | null>(null);
 
-  // ✅ DEBUG (must print actual value)
+  //  DEBUG (must print actual value)
   useEffect(() => {
-    console.log("✅ FINAL FILE ID:", fileId);
+    console.log(" FINAL FILE ID:", fileId);
   }, [fileId]);
 
-  // ✅ FETCH DATA ONLY WHEN fileId EXISTS
+  // FETCH DATA ONLY WHEN fileId EXISTS
   useEffect(() => {
     const fetchData = async () => {
       if (!fileId) return;
@@ -45,14 +45,17 @@ function Workspace() {
     fetchData();
   }, [fileId]);
 
-  // ✅ IMPORTANT: wait until fileId exists
+  //  IMPORTANT: wait until fileId exists
   if (!fileId) {
     return <div className="p-5">Loading...</div>;
   }
 
   return (
     <div className="min-h-screen">
-      <WorkspaceHeader onSave={() => setTriggerSave((prev) => !prev)} />
+      <WorkspaceHeader 
+        onSave={() => setTriggerSave((prev) => !prev)}
+        fileName={fileData.fileName}
+        />
 
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Editor */}
