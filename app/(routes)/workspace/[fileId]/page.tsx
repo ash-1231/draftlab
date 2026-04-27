@@ -54,7 +54,7 @@ function Workspace() {
     <div className="min-h-screen">
       <WorkspaceHeader 
         onSave={() => setTriggerSave((prev) => !prev)}
-        fileName={fileData.fileName}
+        fileName={fileData?.fileName}
         />
 
       <div className="grid grid-cols-1 md:grid-cols-2">
