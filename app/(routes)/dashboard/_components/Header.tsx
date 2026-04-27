@@ -48,45 +48,6 @@ function Header({ searchQuery, setSearchQuery ,totalFiles,onFileCreate}: any) {
             {/* RIGHT */}
             <div className='flex items-center gap-3'>
 
-                {/* NEW FILE BUTTON WITH DIALOG */}
-                <Dialog>
-                    <DialogTrigger asChild>
-                        <Button className='flex items-center gap-x-0.5 bg-teal-500 hover:bg-teal-600 cursor-pointer rounded-2xl'>
-                            <Plus className='h-4 w-4 gap-0' />
-                            New File
-                        </Button>
-                    </DialogTrigger>
-
-                    {(totalFiles ?? 0) < Constant.MAX_FREE_FILE ? (
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogTitle>Create New File</DialogTitle>
-                                <DialogDescription>
-                                    <Input
-                                        placeholder='Enter File Name'
-                                        className='mt-3'
-                                        onChange={(e) => setFileInput(e.target.value)}
-                                    />
-                                </DialogDescription>
-                            </DialogHeader>
-
-                            <DialogFooter>
-                                <DialogClose asChild>
-                                    <Button
-                                        className='bg-teal-600 hover:bg-teal-700 cursor-pointer'
-                                        disabled={!(fileInput && fileInput.length > 3)}
-                                        onClick={() => onFileCreate(fileInput)}
-                                    >
-                                        Create
-                                    </Button>
-                                </DialogClose>
-                            </DialogFooter>
-                        </DialogContent>
-                    ) : (
-                        <PricingDialog />
-                    )}
-                </Dialog>
-
                 {/* USER IMAGE */}
                 <Image
                     src={user?.picture || '/fallback.png'}
