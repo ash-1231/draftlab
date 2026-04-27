@@ -58,7 +58,7 @@ return (
   <div className="min-h-screen">
     <WorkspaceHeader 
       onSave={() => setTriggerSave((prev) => !prev)}
-      fileName={fileData.fileName}   // ✅ NOW SAFE
+      fileName={fileData?.fileName ?? "Loading..."}  // ✅ NOW SAFE
     />
 
     <div className="grid grid-cols-1 md:grid-cols-2">
