@@ -50,34 +50,38 @@ function Workspace() {
     return <div className="p-5">Loading...</div>;
   }
 
-  return (
-    <div className="min-h-screen">
-      <WorkspaceHeader 
-        onSave={() => setTriggerSave((prev) => !prev)}
-        fileName={fileData?.fileName}
+if (!fileId || !fileData) {
+  return <div className="p-5">Loading file...</div>;
+}
+
+return (
+  <div className="min-h-screen">
+    <WorkspaceHeader 
+      onSave={() => setTriggerSave((prev) => !prev)}
+      fileName={fileData.fileName}   // ✅ NOW SAFE
+    />
+
+    <div className="grid grid-cols-1 md:grid-cols-2">
+      {/* Editor */}
+      <div className="h-screen">
+        <Editor
+          onSaveTrigger={triggerSave}
+          fileId={fileId}
+          fileData={fileData}
         />
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        {/* Editor */}
-        <div className="h-screen">
-          <Editor
-            onSaveTrigger={triggerSave}
-            fileId={fileId}
-            fileData={fileData!}
-          />
-        </div>
-
-        {/* Canvas */}
-        <div className="h-screen border-l">
-          <Canvas
-            onSaveTrigger={triggerSave}
-            fileId={fileId}
-            fileData={fileData!}
-          />
-        </div>
+      {/* Canvas */}
+      <div className="h-screen border-l">
+        <Canvas
+          onSaveTrigger={triggerSave}
+          fileId={fileId}
+          fileData={fileData}
+        />
       </div>
     </div>
-  );
+  </div>
+)
 }
 
 export default Workspace;
