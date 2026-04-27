@@ -36,14 +36,17 @@ function SideNavBottomSection({ onFileCreate, totalFiles }: any) {
     <div>
 
       {/* Menu */}
-      <div className='space-y-1'>
-        <div className='flex gap-2 p-2 text-sm hover:bg-gray-100 rounded-md cursor-pointer'>
-          <Github className='h-5 w-5' /> Github
-        </div>
-        <div className='flex gap-2 p-2 text-sm hover:bg-gray-100 rounded-md cursor-pointer'>
-          <Archive className='h-5 w-5' /> Archive
-        </div>
-      </div>
+     <div className='space-y-1'>
+  <a
+    href="https://github.com/ash-1231"
+    target="_blank"
+    rel="noopener noreferrer"
+    className='flex gap-2 p-2 text-sm hover:bg-gray-100 rounded-md cursor-pointer'
+  >
+    <Github className='h-5 w-5' />
+    Github
+  </a>
+</div>
 
       {/* New File Button */}
       <Button
