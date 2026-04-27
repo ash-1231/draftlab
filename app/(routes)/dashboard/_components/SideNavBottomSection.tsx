@@ -48,7 +48,7 @@ function SideNavBottomSection({ onFileCreate, totalFiles }: any) {
       {/* New File Button */}
       <Button
         onClick={handleNewFileClick}
-        className={`w-full mt-3 justify-start ${
+        className={`w-full mt-3 justify-start cursor-pointer ${
           isLimitReached
             ? 'bg-gray-400 cursor-not-allowed'
             : 'bg-teal-500 hover:bg-teal-600'
