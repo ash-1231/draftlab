@@ -4,7 +4,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 export async function proxy(request: NextRequest) {
 
-    // ✅ BYPASS AUTH IN DEVELOPMENT (MOST IMPORTANT)
+    // BYPASS AUTH IN DEVELOPMENT for testing
     if (process.env.NODE_ENV === 'development') {
         return NextResponse.next();
     }
